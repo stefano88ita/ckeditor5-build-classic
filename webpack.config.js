@@ -32,14 +32,10 @@ module.exports = {
 			language: buildConfig.config.language,
 			additionalLanguages: 'all'
 		} ),
-		new BabiliPlugin( null, {
-			comments: false
-		} ),
 		new webpack.BannerPlugin( {
 			banner: bundler.getLicenseBanner(),
 			raw: true
-		} ),
-		new webpack.optimize.ModuleConcatenationPlugin()
+		} )
 	],
 
 	module: {
