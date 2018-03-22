@@ -50,7 +50,7 @@
     "raw-loader": "^0.5.1",
     "style-loader": "^0.20.3",
 	"uglifyjs-webpack-plugin": "fabiosantoscode/uglifyjs-webpack-plugin#patch-1",
-    "webpack": "^4.1.0",
+    "webpack": "^4.2.0",
 	"webpack-cli": "^2.0.10"
   },
   "engines": {
