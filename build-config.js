@@ -7,19 +7,19 @@
 
 module.exports = {
 	// The editor creator to use.
-	editor: '@ckeditor/ckeditor5-editor-classic/src/classiceditor',
+	editor: '@ckeditor/ckeditor5-editor-inline/src/inlineeditor',
 
 	// The name under which the editor will be exported.
-	moduleName: 'ClassicEditor',
+	moduleName: 'InlineEditor',
 
 	// Plugins to include in the build.
 	plugins: [
 		'@ckeditor/ckeditor5-essentials/src/essentials',
-
 		'@ckeditor/ckeditor5-adapter-ckfinder/src/uploadadapter',
 		'@ckeditor/ckeditor5-autoformat/src/autoformat',
 		'@ckeditor/ckeditor5-basic-styles/src/bold',
 		'@ckeditor/ckeditor5-basic-styles/src/italic',
+		'@ckeditor/ckeditor5-basic-styles/src/underline',
 		'@ckeditor/ckeditor5-block-quote/src/blockquote',
 		'@ckeditor/ckeditor5-easy-image/src/easyimage',
 		'@ckeditor/ckeditor5-heading/src/heading',
@@ -30,7 +30,8 @@ module.exports = {
 		'@ckeditor/ckeditor5-image/src/imageupload',
 		'@ckeditor/ckeditor5-link/src/link',
 		'@ckeditor/ckeditor5-list/src/list',
-		'@ckeditor/ckeditor5-paragraph/src/paragraph'
+		'@ckeditor/ckeditor5-paragraph/src/paragraph',
+		'@ckeditor/ckeditor5-alignment/src/alignment'
 	],
 
 	// Editor config.
@@ -39,8 +40,10 @@ module.exports = {
 			items: [
 				'heading',
 				'|',
+				'alignment',
 				'bold',
 				'italic',
+				'underline',
 				'link',
 				'bulletedList',
 				'numberedList',
@@ -51,8 +54,25 @@ module.exports = {
 			]
 		},
 
+		heading: {
+            options: [
+                { model: 'paragraph', title: 'Paragrafo', class: 'ck-heading_paragraph' },
+                { model: 'heading2', view: 'h2', title: 'Titolo grande', class: 'ck-heading_heading2' },
+                { model: 'heading3', view: 'h3', title: 'Titolo piccolo', class: 'ck-heading_heading3' }
+            ]
+		},
+		
+		ckfinder: {
+			uploadUrl: '/ckeditor/upload-image.php'
+		},
+
 		image: {
-			toolbar: [ 'imageStyle:full', 'imageStyle:side', '|', 'imageTextAlternative' ]
+			toolbar: [ 'imageTextAlternative', '|', 'imageStyle:alignLeft', 'imageStyle:full', 'imageStyle:alignRight' ],
+			styles: [
+				'full',
+				'alignLeft',
+				'alignRight'
+            ]
 		},
 
 		// UI language. Language codes follow the https://en.wikipedia.org/wiki/ISO_639-1 format.
