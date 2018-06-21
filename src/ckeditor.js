@@ -5,6 +5,8 @@
 
 import InlineEditorBase from '@ckeditor/ckeditor5-editor-inline/src/inlineeditor';
 import EssentialsPlugin from '@ckeditor/ckeditor5-essentials/src/essentials';
+import EnterPlugin from '@ckeditor/ckeditor5-enter/src/enter';
+import ShiftenterPlugin from '@ckeditor/ckeditor5-enter/src/shiftenter';
 import UploadadapterPlugin from '@ckeditor/ckeditor5-adapter-ckfinder/src/uploadadapter';
 import AutoformatPlugin from '@ckeditor/ckeditor5-autoformat/src/autoformat';
 import BoldPlugin from '@ckeditor/ckeditor5-basic-styles/src/bold';
@@ -28,6 +30,8 @@ export default class InlineEditor extends InlineEditorBase {}
 InlineEditor.build = {
 	plugins: [
 		EssentialsPlugin,
+		EnterPlugin,
+		ShiftenterPlugin,
 		UploadadapterPlugin,
 		AutoformatPlugin,
 		BoldPlugin,
